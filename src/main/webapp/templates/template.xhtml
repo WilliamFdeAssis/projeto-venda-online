@@ -15,22 +15,49 @@ and open the template in the editor.
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     </h:head>
     <h:body>
-       <p:layout fullPage="true">
+        <p:layout fullPage="true">
 
-    <p:layoutUnit position="north" header="Sistema de venda Online">
-        
-    </p:layoutUnit>
+            <p:layoutUnit position="north" header="Sistema de venda Online" resizable="false"
+                          closable="false"  collapsible="false">
 
-    <p:layoutUnit position="south" size="100" header="Desenvolvido por William Francisco de Assis">
-       
-    </p:layoutUnit>
 
-    
 
-    <p:layoutUnit position="center">
-       
-    </p:layoutUnit>
+            </p:layoutUnit>
 
-</p:layout>
+            <p:layoutUnit position="south" size="100" header="Desenvolvido por William Francisco de Assis"
+                          resizable="false" closable="false"  collapsible="false">
+
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="west" size= "250" 
+                          resizable="false" closable="false"  collapsible="false">
+                <h:form>
+                    <p:panelMenu>
+                        <p:submenu label="Arquivo">
+                            <p:menuitem value="Principal" outcome="/Pages/principal.xhtml" />
+                            <p:menuitem value="Sair"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Cadastro">
+                            <p:menuitem value="Produtos"/>
+                            <p:menuitem value="Fornecedores"/>
+                            <p:menuitem value="Funcionarios"/>
+                        </p:submenu>
+                        
+                        <p:submenu label="Vendas"/>
+                        <p:submenu label="Ajuda"/>
+                    </p:panelMenu>
+                </h:form>
+
+            </p:layoutUnit>
+
+
+            <p:layoutUnit position="center" resizable="false"
+                          closable="false"  collapsible="false">
+                <ui:insert name="conteudo"/>
+            </p:layoutUnit>
+
+        </p:layout>
     </h:body>
 </html>
