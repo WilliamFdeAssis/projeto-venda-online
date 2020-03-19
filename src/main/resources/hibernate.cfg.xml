@@ -54,17 +54,8 @@ Contributor(s):
     <property name="hbm2ddl.auto">update</property>    
     
     <!-- Mapeamento das tabelas do banco de dados-->
-    <mapping class= "br.com.sistema_financeiro.domain.Estado" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Cidade" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Cliente" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Fornecedor" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Funcionario" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.ItemVenda" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Pessoa" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Produto" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Usuario" ></mapping>
-    <mapping class= "br.com.sistema_financeiro.domain.Venda" ></mapping>
-    
+    <mapping class= "br.com.vendaonline1.domain.Fornecedor" ></mapping>
+   
   </session-factory>
 </hibernate-configuration>
  
