@@ -51,11 +51,15 @@ Contributor(s):
     <property name="show_sql">true</property>
     
     <!-- cria as tabelas no banco de dados -->
-    <property name="hbm2ddl.auto">update</property>    
+    <property name="hbm2ddl.auto">validate</property>    
     
     <!-- Mapeamento das tabelas do banco de dados-->
-    <mapping class= "br.com.vendaonline1.domain.Fornecedor" ></mapping>
-   
+<mapping class= "br.com.vendaonline1.domain.Fornecedor" ></mapping>
+<mapping class= "br.com.vendaonline1.domain.Funcionario" ></mapping>
+<mapping class= "br.com.vendaonline1.domain.Produto" ></mapping>
+<mapping class= "br.com.vendaonline1.domain.Venda" ></mapping>
+<mapping class= "br.com.vendaonline1.domain.Item" ></mapping>
+
   </session-factory>
 </hibernate-configuration>
  
