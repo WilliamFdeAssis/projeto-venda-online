@@ -22,11 +22,11 @@ template="/templates/template.xhtml">
             <h:panelGrid columns="4">
                 <p:outputLabel value="Descrição: "/>
                 <p:inputText maxlength="50" size="30"/>
-                <p:commandButton value="Buscar"/>
-                <p:commandButton value="Novo"/>
+                <p:button value="Buscar"/>
+                <p:button value="Novo" outcome="/Pages/fornecedorcadastro.xhtml"/>
             </h:panelGrid>
             
-            <p:dataTable>
+            <p:dataTable emptyMessage="Nenhum registro encontrado">
                 <p:column headerText="Código"></p:column>
                 <p:column headerText="Descrição"></p:column>
                 <p:column headerText="Opções"></p:column>
