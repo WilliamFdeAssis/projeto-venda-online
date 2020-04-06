@@ -13,6 +13,8 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 template="/templates/template.xhtml">
     
     <ui:define name="conteudo">
+        <f:event listener="#{MBFornecedor.prepararPesquisa()}" 
+type="preRenderView" />
         <h:form>
             <p:toolbar>
                 <f:facet name="left">
@@ -26,9 +28,23 @@ template="/templates/template.xhtml">
                 <p:button value="Novo" outcome="/Pages/fornecedorcadastro.xhtml"/>
             </h:panelGrid>
             
-            <p:dataTable emptyMessage="Nenhum registro encontrado">
-                <p:column headerText="Código"></p:column>
-                <p:column headerText="Descrição"></p:column>
+            <p:dataTable emptyMessage="Nenhum registro encontrado" value="#{MBFornecedor.lista}"
+                         filteredValue="#{MBFornecedor.itensFiltrados}" 
+                         var="fornecedor"
+                         rows="10"
+                          paginator="true">
+                          
+                
+                <p:column headerText="Código">
+                <h:outputText value="#{fornecedor.codigo}"/>
+                </p:column>
+                
+                <p:column headerText="Descrição" filterBy="#{fornecedor.descricao}"
+                          sortBy="#{fornecedor.descricao}">
+                    <h:outputText value="#{fornecedor.descricao}" />
+                </p:column>
+                          
+                          <h:outputText value="#{fornecedor.descricao}"/>   
                 <p:column headerText="Opções"></p:column>
             </p:dataTable>
         </h:form>

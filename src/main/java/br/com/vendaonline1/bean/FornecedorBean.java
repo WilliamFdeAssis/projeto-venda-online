@@ -8,6 +8,8 @@ package br.com.vendaonline1.bean;
 import br.com.vendaonline1.dao.FornecedorDao;
 import br.com.vendaonline1.domain.Fornecedor;
 import br.com.vendasonline1.util.JSFUtil;
+import java.util.ArrayList;
+import javax.annotation.PostConstruct;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 
@@ -21,6 +23,32 @@ public class FornecedorBean {
     
     private Fornecedor fornecedor;
     
+    private ArrayList<Fornecedor>lista;
+    private ArrayList<Fornecedor>itensFiltrados;
+    
+    
+
+    public void prepararPesquisa(){
+        
+         try{
+        FornecedorDao fdao = new FornecedorDao();
+        
+          lista = (ArrayList<Fornecedor>) fdao.listar();
+          
+          
+    } catch(RuntimeException e){
+            JSFUtil.adicionarMensagemErro("ex.getMessage()");
+            e.printStackTrace();
+        }
+        
+        
+    }
+    
+    public void novo(){
+    fornecedor = new Fornecedor(); 
+         
+}
+    
     public void salvar(){
         
         try{
@@ -31,13 +59,16 @@ public class FornecedorBean {
         JSFUtil.adicionarMensagemSucesso("Salvo com sucesso");
         
         
-             fornecedor = new Fornecedor();
+             
         
         } catch(RuntimeException e){
             JSFUtil.adicionarMensagemErro("ex.getMessage()");
             e.printStackTrace();
         }
     }
+    
+      
+    
 
     public Fornecedor getFornecedor() {
         if(fornecedor == null){
@@ -49,6 +80,22 @@ public class FornecedorBean {
 
     public void setFornecedor(Fornecedor fornecedor) {
         this.fornecedor = fornecedor;
+    }
+
+    public ArrayList<Fornecedor> getLista() {
+        return lista;
+    }
+
+    public void setLista(ArrayList<Fornecedor> lista) {
+        this.lista = lista;
+    }
+
+    public ArrayList<Fornecedor> getItensFiltrados() {
+        return itensFiltrados;
+    }
+
+    public void setItensFiltrados(ArrayList<Fornecedor> itensFiltrados) {
+        this.itensFiltrados = itensFiltrados;
     }
     
 }

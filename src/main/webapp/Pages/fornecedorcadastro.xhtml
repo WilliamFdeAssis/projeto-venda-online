@@ -13,6 +13,7 @@ xmlns:ui="http://java.sun.com/jsf/facelets"
 template="/templates/template.xhtml">
     
     <ui:define name="conteudo">
+     
        <h:form id="frmforcad">
             <p:toolbar>
                 <f:facet name="left">
@@ -29,7 +30,8 @@ template="/templates/template.xhtml">
             </h:panelGrid>
             
             <h:panelGrid columns="3">
-                <p:button value="Novo" />
+                <p:commandButton value="Novo" actionListener="#{MBFornecedor.novo()}"
+                     update=" :frmforcad:pnforcad"/>           
                 <p:commandButton value="Salvar" actionListener="#{MBFornecedor.salvar}" 
 update=":msgGlobal :frmforcad:pnforcad" />
                 <p:button value="Voltar" outcome="/Pages/fornecedorpesquisa"/>
