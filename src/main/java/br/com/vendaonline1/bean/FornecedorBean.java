@@ -43,6 +43,30 @@ public class FornecedorBean {
         
         
     }
+       
+      public void carregarCadastro(){
+          
+          try{
+        
+         String valor = JSFUtil.getParam("forcod");
+          if(valor != null){
+              
+              Long codigo = Long.parseLong(valor);
+              
+              FornecedorDao fdao = new FornecedorDao();
+              
+                fornecedor = fdao.buscar(codigo);
+          }
+          
+          
+    } catch(RuntimeException e){
+            JSFUtil.adicionarMensagemErro("ex.getMessage()");
+            e.printStackTrace();
+        }
+        
+          
+          
+      }
     
     public void novo(){
     fornecedor = new Fornecedor(); 
@@ -67,6 +91,45 @@ public class FornecedorBean {
         }
     }
     
+    
+     public void excluir(){
+         
+         try{
+         FornecedorDao fdao = new FornecedorDao();
+         
+         fdao.excluir(fornecedor); 
+         
+         JSFUtil.adicionarMensagemSucesso("Fornecedor excluido com sucesso");
+     
+         }catch(RuntimeException e){
+             
+             JSFUtil.adicionarMensagemErro("Não foi possivel excluir o fornecedor"
+                     + " que tenha um produto associado!");
+             
+             e.printStackTrace();
+         }
+         
+         
+     }
+     
+       public void editar(){
+           
+           try{
+               
+               FornecedorDao fdao = new FornecedorDao();
+               
+               fdao.editar(fornecedor);
+               
+               JSFUtil.adicionarMensagemSucesso("Fornecedor editado com sucesso");
+               
+           } catch(RuntimeException e){
+               
+               JSFUtil.adicionarMensagemErro("ex.getMessage()");
+               e.printStackTrace();
+               
+               
+           }
+       }
       
     
 
