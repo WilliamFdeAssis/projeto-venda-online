@@ -43,9 +43,10 @@ type="preRenderView" />
 update=":msgGlobal :frmforcad:pnforcad" />
                 
                 <p:commandButton value="Excluir" actionListener="#{MBFornecedor.excluir()}"
-                     update=":msgGlobal"/>  
+                    update=":msgGlobal"/>  
                 
-                <p:commandButton value="Editar" actionListener="#{MBFornecedor.editar()}"/>  
+                <p:commandButton value="Editar" actionListener="#{MBFornecedor.editar()}"
+                  update=":msgGlobal"/>  
                 
                 <p:button value="Voltar" outcome="/Pages/fornecedorpesquisa"/>
             </h:panelGrid>

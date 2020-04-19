@@ -31,7 +31,9 @@ type="preRenderView" />
                 <p:outputLabel value="Descrição: "/>
                 <p:inputText maxlength="50" size="30"/>
                 <p:button value="Buscar"/>
-                <p:button value="Novo" outcome="/Pages/fornecedorcadastro.xhtml"/>
+                <p:button value="Novo" outcome="/Pages/fornecedorcadastro.xhtml"> 
+                    <f:param name="foracao" value="Novo"/>
+                </p:button>
             </h:panelGrid>
             
             <p:dataTable emptyMessage="Nenhum registro encontrado" value="#{MBFornecedor.lista}"
@@ -54,9 +56,12 @@ type="preRenderView" />
                           <p:column headerText="Opções">
                               <p:button icon="ui-icon-pencil" outcome="/Pages/fornecedorcadastro.xhtml">
                                   <f:param name="forcod" value="#{fornecedor.codigo}"/>
+                                  <f:param name="foracao" value="Editar"/>
                               </p:button>
                               <p:button icon="ui-icon-trash" outcome="/Pages/fornecedorcadastro.xhtml">
                                   <f:param  name="forcod" value="#{fornecedor.codigo}"/>
+                                  <f:param name="foracao" value="Novo"/>
+                                  <f:param name="foracao" value="Excluir"/>
                               </p:button>
                           </p:column>
             </p:dataTable>

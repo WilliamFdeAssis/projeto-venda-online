@@ -26,6 +26,8 @@ public class FornecedorBean {
     private ArrayList<Fornecedor>lista;
     private ArrayList<Fornecedor>itensFiltrados;
     
+    private  String acao;
+    
     
 
     public void prepararPesquisa(){
@@ -47,6 +49,8 @@ public class FornecedorBean {
       public void carregarCadastro(){
           
           try{
+           
+         acao = JSFUtil.getParam("foracao");
         
          String valor = JSFUtil.getParam("forcod");
           if(valor != null){
@@ -56,10 +60,14 @@ public class FornecedorBean {
               FornecedorDao fdao = new FornecedorDao();
               
                 fornecedor = fdao.buscar(codigo);
+          }else{
+              
+            fornecedor = new Fornecedor();
+        }
           }
           
           
-    } catch(RuntimeException e){
+     catch(RuntimeException e){
             JSFUtil.adicionarMensagemErro("ex.getMessage()");
             e.printStackTrace();
         }
@@ -67,6 +75,14 @@ public class FornecedorBean {
           
           
       }
+
+    public String getAcao() {
+        return acao;
+    }
+
+    public void setAcao(String acao) {
+        this.acao = acao;
+    }
     
     public void novo(){
     fornecedor = new Fornecedor(); 
@@ -134,9 +150,7 @@ public class FornecedorBean {
     
 
     public Fornecedor getFornecedor() {
-        if(fornecedor == null){
-            fornecedor = new Fornecedor();
-        }
+        
         return fornecedor;
        
     }

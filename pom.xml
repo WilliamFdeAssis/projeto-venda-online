@@ -13,7 +13,8 @@
         <endorsed.dir>${project.build.directory}/endorsed</endorsed.dir>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-    
+ 
+   
     <dependencies>
         <dependency>
              
@@ -52,14 +53,15 @@
 			<artifactId>primefaces</artifactId>
 			<version>5.2</version>
 		</dependency>
-       
-        
-
-       
+                
+                 
         
     </dependencies>
+    
 
     <build>
+        
+        
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
